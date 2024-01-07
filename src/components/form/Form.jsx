@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
+import './Form.css';
 class Form extends Component {
   state = {
     name: '',
     number: '',
   };
-
-  // nameInputId = nanoid();
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -27,10 +26,11 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
+      <form onSubmit={this.handleSubmit} className="form">
+        <label htmlFor={this.nameInputId} className="label">
           Name
           <input
+            className="input"
             type="text"
             name="name"
             value={this.state.name}
@@ -39,9 +39,10 @@ class Form extends Component {
             required
           />
         </label>
-        <label htmlFor={this.nameInputId}>
+        <label htmlFor={this.nameInputId} className="label">
           Number
           <input
+            className="input"
             type="tel"
             name="number"
             value={this.state.number}
@@ -51,7 +52,9 @@ class Form extends Component {
           />
         </label>
 
-        <button type="submit">Add Contact</button>
+        <button type="submit" className="submit">
+          Add Contact
+        </button>
       </form>
     );
   }
