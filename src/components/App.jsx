@@ -3,7 +3,7 @@ import Form from './form/Form';
 import { ContactList } from './contactList/ContactList';
 import { Filter } from './filter/Filter';
 import { nanoid } from 'nanoid';
-import './App.css';
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -38,6 +38,7 @@ export class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
   getVisibleContact = () => {
+    console.log(css);
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
 
@@ -50,12 +51,12 @@ export class App extends Component {
     const { filter } = this.state;
     const getVisibleContact = this.getVisibleContact();
     return (
-      <section className="section">
-        <h1 className="title">Phonebook</h1>
+      <section className={css.section}>
+        <h1 className={css.title}>Phonebook</h1>
         <Form onSubmit={this.addContact}></Form>
 
         <Filter value={filter} onChange={this.changeFilter}></Filter>
-        <h2 className="titleContacts"> Contacts</h2>
+        <h2 className={css.titleContacts}> Contacts</h2>
         <ContactList
           data={getVisibleContact}
           onDeleteContact={this.deleteContact}

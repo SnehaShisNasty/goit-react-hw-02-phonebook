@@ -1,15 +1,15 @@
 import React from 'react';
-import './Filter.css';
+import css from './Filter.module.css';
 
 export const Filter = ({ value, onChange }) => (
-  <form className="form">
-    <label className="filterLabel">
+  <form className={css.form}>
+    <label className={css.filterLabel}>
       Filter
       <input
         type="text"
         value={value}
         onChange={onChange}
-        className="filterInput"
+        className={css.filterInput}
       />
     </label>
   </form>
